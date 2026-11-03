@@ -1,0 +1,4 @@
+interface:
+  display_name: "Illustrator - Ofertas do Gustavo"
+  short_description: "Ofertas no Illustrator com o padrão do Gustavo"
+  default_prompt: "Use $gustavo-illustrator-ofertas para configurar o Illustrator e montar ofertas seguindo minhas referências."

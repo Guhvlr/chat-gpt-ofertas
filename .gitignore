@@ -1,0 +1,11 @@
+*.ai
+*.aep
+*.zip
+settings.json
+.env
+.env.*
+*.pem
+*.key
+cache/
+logs/
+test-output/
