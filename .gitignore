@@ -4,6 +4,9 @@
 settings.json
 work-files.json
 work-files.json.*
+central-session.json
+central.log
+central-error.log
 .env
 .env.*
 *.pem

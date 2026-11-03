@@ -10,6 +10,7 @@ Esta skill inclui as orientações e nove telas corrigidas manualmente pelo Gust
 ## Primeiro uso ou computador diferente
 
 1. Perguntar **qual a versão do Illustrator** e confirmar o sistema operacional, se ainda não informados. Não repetir respostas da sessão. Os scripts suportam Windows; explicar a limitação em outro sistema.
+   Se o pedido for instalar pela **Central Mac Digital**, abrir `central/Abrir-Central.ps1` na raiz do pacote e deixar a pessoa escolher a versão pela interface, sem repetir a pergunta no chat. Somente Illustrator está disponível; os outros aplicativos aparecem como “Em breve”.
 2. Ler [conexão e operação](references/conexao-illustrator.md). Executar o `Instalar.ps1` da raiz do repositório com `powershell.exe`, passando a versão respondida. O instalador configura o conector. Se já estiver instalado, preservar a configuração local.
 3. Testar a conexão sem editar documento e confirmar a versão que respondeu. Nunca usar silenciosamente outra instalação.
 4. Na instalação, não perguntar tarefa, arquivo a abrir, pasta de saída ou validade: aguardar o pedido posterior. Perguntar por modelos e fotos somente quando necessários à tarefa. Caminhos antigos são históricos. A configuração local fica em `%LOCALAPPDATA%\GustavoIllustrator\settings.json`.

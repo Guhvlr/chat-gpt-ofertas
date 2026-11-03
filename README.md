@@ -1,13 +1,15 @@
 # Ofertas da equipe — Illustrator
 
-Skill portátil com as orientações do Gustavo, nove telas corrigidas por ele e conexão nativa com Illustrator no Windows. O objetivo é consultar os padrões aprovados antes de cada oferta e preservar a identidade de cada cliente.
+Central Mac Digital e skill portátil com as orientações do Gustavo, nove telas corrigidas por ele e conexão nativa com Illustrator no Windows. O objetivo é consultar os padrões aprovados antes de cada oferta e preservar a identidade de cada cliente.
 
 ## Instalar em outro PC
 
 1. Instale Codex e Adobe Illustrator pelos canais oficiais. Para sincronizar referências, instale também Git para Windows e entre na sua própria conta com acesso a este repositório privado.
 2. Baixe em **Code → Download ZIP** e extraia tudo.
-3. Abra **Instalar.cmd**. Informe a versão do Illustrator. O aplicativo pode ser iniciado para testar a conexão. Na instalação não é preciso escolher oferta, fotos ou arquivo a abrir.
-4. No Codex, peça: **Use $gustavo-illustrator-ofertas para atualizar minha oferta.** Reinicie o Codex se a skill não aparecer.
+3. Abra **Central.cmd** (ou **Instalar.cmd**, que abre a mesma Central). Na página local, selecione a versão do Illustrator e clique em **Instalar e conectar**. O aplicativo pode ser iniciado para testar a conexão. Na instalação não é preciso escolher oferta, fotos ou arquivo a abrir.
+4. Quando estiver conectado, clique em **Iniciar conversa**. O Codex abre com a pasta e uma mensagem inicial preparadas; revise e envie. Alternativa: abra o Codex e peça **Use $gustavo-illustrator-ofertas para atualizar minha oferta.** Reinicie o Codex se a skill não aparecer.
+
+A Central também permite testar a conexão, atualizar skill/referências e visualizar as nove telas aprovadas. **Apenas Illustrator está disponível. After Effects, Photoshop e CapCut aparecem como “Em breve”.** Veja [operação da Central](central/README.md).
 
 O instalador usa Windows PowerShell 5.1 e instala por padrão em `%USERPROFILE%\.agents\skills`. Não instala Illustrator, licença, fontes, arquivos `.ai` nem toda a biblioteca de produtos. Cada PC precisa ter seus próprios modelos e fotos. A configuração local fica em `%LOCALAPPDATA%\GustavoIllustrator`; não é enviada ao GitHub.
 
@@ -33,7 +35,7 @@ No primeiro uso de cada arquivo, a skill confirma pasta, nome e validade pelos d
 
 ### Pedido pronto para um PC novo
 
-> Baixe e configure https://github.com/Guhvlr/chat-gpt-ofertas neste PC. Leia o AGENTS.md e a skill do repositório, instale os componentes necessários à conexão e pergunte qual a versão do Illustrator, se eu ainda não tiver informado. Instale a skill, teste a conexão e aguarde minha tarefa; não precisa perguntar qual arquivo abrir agora.
+> Baixe e configure https://github.com/Guhvlr/chat-gpt-ofertas neste PC. Leia o AGENTS.md e abra a Central Mac Digital para eu selecionar a versão do Illustrator e instalar a integração. Depois aguarde minha tarefa.
 
 O Codex do novo PC precisa conseguir acessar o repositório privado com a conta da pessoa. O pedido orienta o agente a executar a instalação; apenas colar um link ou baixar um ZIP não executa programas sozinho. Se Git estiver ausente, o agente pode instalar o Git oficial dentro das permissões do computador. Acesso privado e licença Adobe continuam próprios de cada pessoa/PC.
 

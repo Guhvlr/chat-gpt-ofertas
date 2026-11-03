@@ -17,3 +17,12 @@ Limites: a conexão foi verificada neste PC com Windows e Illustrator 28.1.0. Ou
 - `Update-Skill.ps1` testado com origem Git isolada: atualização da skill instalada com backup, repetição sem mudanças e preservação de cache com alterações locais.
 - Histórico por arquivo e configuração local permanecem fora da pasta da skill e do GitHub. Não há salvamento ou atualização em segundo plano: o agente aciona os helpers nos blocos de trabalho.
 - A instalação não pede tarefa, arquivo a abrir ou biblioteca de fotos. Versão continua sendo a informação necessária para escolher o COM correto.
+
+## Central Mac Digital 1.0
+
+- Interface HTML/CSS/JS local, sem dependências web externas. Illustrator é a única integração ativa; After Effects, Photoshop e CapCut aparecem como “Em breve”.
+- Servidor Windows PowerShell 5.1 testado com detecção do Illustrator 2024/28.1.0, instalação em pasta isolada pelo botão da página, confirmação da conexão e entrega da imagem de referências.
+- Chamadas sem sessão e de origem externa rejeitadas (403); tentativa de ler arquivo fora das rotas públicas rejeitada (404); versão inválida rejeitada (400).
+- Link de conversa validado com protocolo `codex://new`, pasta absoluta e mensagem que invoca a skill. Não foi criada uma conversa de teste nem enviada uma mensagem automaticamente.
+- Interface revisada no navegador em largura de desktop (1280 px) e estreita (390 px), sem rolagem horizontal no teste estreito. Instalação e teste da conexão confirmados pela interface.
+- Botão de atualização testado contra o GitHub privado pela interface. O cálculo de hashes usa SHA-256 do .NET para funcionar também no processo local de fundo, sem depender da descoberta do cmdlet Get-FileHash.

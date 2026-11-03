@@ -2,6 +2,11 @@
 param([string]$SettingsPath,[string]$CachePath,[string]$InstalledSkillPath)
 $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'Illustrator-Common.ps1')
+function Get-PackageFileHash([string]$Path) {
+    $algorithm=[Security.Cryptography.SHA256]::Create()
+    $inputStream=[IO.File]::OpenRead($Path)
+    try {return [BitConverter]::ToString($algorithm.ComputeHash($inputStream))} finally {$inputStream.Dispose();$algorithm.Dispose()}
+}
 if (-not $InstalledSkillPath) {$InstalledSkillPath=Split-Path -Parent $PSScriptRoot}
 $target=[IO.Path]::GetFullPath($InstalledSkillPath)
 $sync=& (Join-Path $PSScriptRoot 'Sync-References.ps1') -SettingsPath $SettingsPath -CachePath $CachePath | ConvertFrom-Json
@@ -16,7 +21,7 @@ if (@(Get-ChildItem -LiteralPath $source -Recurse -Force | Where-Object {$_.Attr
 $changed=@($files | Where-Object {
     $relative=$_.FullName.Substring($source.TrimEnd('\').Length).TrimStart('\')
     $dest=Join-Path $target $relative
-    -not (Test-Path -LiteralPath $dest) -or (Get-FileHash -LiteralPath $_.FullName).Hash -ne (Get-FileHash -LiteralPath $dest).Hash
+    -not (Test-Path -LiteralPath $dest) -or (Get-PackageFileHash $_.FullName) -ne (Get-PackageFileHash $dest)
 })
 if ($changed.Count) {
     $backupRoot=Join-Path (Split-Path -Parent (Get-SettingsPath $SettingsPath)) 'backups'
