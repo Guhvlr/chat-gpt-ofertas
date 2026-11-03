@@ -13,7 +13,10 @@ if ($Mode -eq 'Status') {
 } else {
     if (-not $DocumentName) {throw 'Informe o nome exato do documento em DocumentName.'}
     if (-not (Test-Path -LiteralPath $ScriptPath -PathType Leaf) -or [IO.Path]::GetExtension($ScriptPath) -notin @('.jsx','.js')) {throw 'Informe um arquivo JSX/JS existente.'}
+    $work=& (Join-Path $PSScriptRoot 'Save-Work.ps1') -Mode Inspect -DocumentName $DocumentName -SettingsPath $SettingsPath | ConvertFrom-Json
+    if ($work.needsDestination) {throw 'Confirme destino e validade e execute Save-Work.ps1 -Mode Prepare antes de editar.'}
     $quoted=ConvertTo-Json -InputObject $DocumentName -Compress
     $ai.DoJavaScript('app.documents.getByName('+$quoted+').activate();') | Out-Null
     $ai.DoJavaScriptFile([IO.Path]::GetFullPath($ScriptPath))
+    & (Join-Path $PSScriptRoot 'Save-Work.ps1') -Mode Checkpoint -DocumentName $DocumentName -SettingsPath $SettingsPath
 }

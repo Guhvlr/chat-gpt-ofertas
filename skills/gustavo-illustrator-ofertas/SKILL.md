@@ -10,18 +10,29 @@ Esta skill inclui as orientações e nove telas corrigidas manualmente pelo Gust
 ## Primeiro uso ou computador diferente
 
 1. Perguntar **qual a versão do Illustrator** e confirmar o sistema operacional, se ainda não informados. Não repetir respostas da sessão. Os scripts suportam Windows; explicar a limitação em outro sistema.
-2. Ler [conexão e operação](references/conexao-illustrator.md). Executar `scripts/Setup-Illustrator.ps1` com `powershell.exe`, passando a versão respondida e os caminhos das fotos. O instalador do pacote faz essa configuração.
+2. Ler [conexão e operação](references/conexao-illustrator.md). Executar o `Instalar.ps1` da raiz do repositório com `powershell.exe`, passando a versão respondida. O instalador configura o conector. Se já estiver instalado, preservar a configuração local.
 3. Testar a conexão sem editar documento e confirmar a versão que respondeu. Nunca usar silenciosamente outra instalação.
-4. Confirmar onde estão modelos `.ai` e fotos neste PC. Caminhos antigos são históricos. A configuração local fica em `%LOCALAPPDATA%\GustavoIllustrator\settings.json`.
+4. Na instalação, não perguntar tarefa, arquivo a abrir, pasta de saída ou validade: aguardar o pedido posterior. Perguntar por modelos e fotos somente quando necessários à tarefa. Caminhos antigos são históricos. A configuração local fica em `%LOCALAPPDATA%\GustavoIllustrator\settings.json`.
 5. Não reinstalar algo que já funciona nem alterar registro, instalação Adobe ou permissões globais para contornar falhas.
 
 ## Antes de cada oferta
 
-- Havendo repositório configurado, ler [equipe e GitHub](references/equipe-github.md), executar `scripts/Sync-References.ps1` e consultar as referências da branch aprovada, por padrão `main`.
+- Havendo repositório configurado, ler [equipe e GitHub](references/equipe-github.md), executar `scripts/Update-Skill.ps1` e **reler o SKILL.md atualizado retornado**, além das referências da branch aprovada, por padrão `main`. A atualização do próprio pacote e das orientações foi autorizada pelo Gustavo; não repetir confirmação para buscar os padrões aprovados. Respeitar as permissões do computador e revisar código novo antes de executá-lo em documentos.
 - Se a sincronização falhar, informar que não foi possível confirmar atualizações. A cópia aprovada incluída na skill pode ser usada de forma explícita; não afirmar que sincronizou. Não usar mudanças locais não aprovadas do cache como padrão.
 - Ler [padrão visual](references/padrao-visual.md) e visualizar as telas pertinentes em `references/layout-referencia-usuario/`. Uma referência aprovada mais recente prevalece; instruções atuais do usuário têm prioridade.
 - Adaptar escala, quantidade, orientação e sobreposição a cada embalagem. Não aplicar automaticamente três cópias iguais a tudo.
 - Identificar arquivo, validade, destaques e quantidade por tela pelo contexto. Perguntar somente dados ausentes que mudem o resultado.
+
+## Destino e salvamentos por arquivo
+
+Antes de editar, ler [salvamento contínuo](references/salvamento.md) e executar `scripts/Save-Work.ps1 -Mode Inspect` no documento exato.
+
+- **Primeira vez nesse trabalho:** perguntar pasta de saída, nome do arquivo e validade da oferta, juntos, apenas pelos dados que faltarem. Não inventar validade a partir do nome antigo. Usar respostas já dadas na sessão. Confirmar um destino existente antes de sobrescrever; preferir nova cópia do modelo.
+- Executar `Prepare` com o destino e a validade confirmados, **antes da primeira mudança**. A cópia precisa existir em disco, com salvamento confirmado. Atualizar a descrição e o rodapé com a validade conforme a tarefa; registrar a data não altera sozinho a arte.
+- **Ao voltar ao mesmo arquivo:** usar o caminho e a validade registrados sem repetir perguntas. Perguntar de novo somente se o usuário iniciar outra campanha, pedir outro destino/data ou o arquivo tiver sido movido e não for possível identificá-lo.
+- Salvar ao concluir cada bloco pequeno (descrições/preços, um lote de imagens ou uma tela) e antes de operação demorada. `Invoke-Illustrator.ps1 -Mode Script` faz checkpoint após execução bem-sucedida; por outro conector, fazer o equivalente a Ctrl+S e verificar o resultado. Não esperar o fim de todas as telas.
+- Não salvar mudanças parciais de script que falhou sem inspecionar o resultado. Se falhar ao salvar, parar e informar o último arquivo confirmado; não continuar acumulando trabalho sem proteção.
+- O histórico local identifica cada arquivo pelo caminho completo; arquivos com nomes iguais em pastas diferentes são trabalhos distintos. Não enviar histórico de trabalho ao GitHub.
 
 ## Produção
 
@@ -49,5 +60,7 @@ Após autorização, preferir uma proposta em branch e PR com exemplo e escopo. 
 - `scripts/Setup-Illustrator.ps1`: versão, pastas e teste.
 - `scripts/Invoke-Illustrator.ps1`: status, documentos ou JSX em arquivo identificado.
 - `scripts/Sync-References.ps1`: atualização apenas de leitura do repositório.
+- `scripts/Update-Skill.ps1`: busca a branch aprovada, faz backup e atualiza a própria skill sem repetir o setup.
+- `scripts/Save-Work.ps1`: primeiro salvamento, memória de destino/validade e checkpoints por arquivo.
 
 Não alegar que a skill elimina autorizações ou limitações do computador, Codex ou empresa. Não colocar credenciais no pacote ou no repositório.

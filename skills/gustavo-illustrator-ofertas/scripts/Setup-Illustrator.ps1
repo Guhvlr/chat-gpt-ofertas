@@ -11,9 +11,10 @@ if (-not $VersionLabel) {
     $VersionLabel=Read-Host 'Versao'
 }
 $major=Resolve-IllustratorMajor $VersionLabel
-if ($ProductRoots.Count -eq 0 -and -not $NonInteractive) {
-    $inputRoots=Read-Host 'Pastas das fotos, separadas por ponto e virgula (pode configurar depois)'
-    $ProductRoots=@($inputRoots.Split(';') | ForEach-Object {$_.Trim().Trim('"')} | Where-Object {$_})
+$oldSettingsPath=Get-SettingsPath $SettingsPath
+if ($ProductRoots.Count -eq 0 -and (Test-Path -LiteralPath $oldSettingsPath)) {
+    $old=Read-IllustratorSettings $SettingsPath
+    $ProductRoots=@($old.productRoots)
 }
 $roots=@($ProductRoots | ForEach-Object {[IO.Path]::GetFullPath($_)})
 foreach ($r in $roots) {if (-not (Test-Path -LiteralPath $r -PathType Container)) {Write-Warning ('Pasta indisponivel neste PC: '+$r)}}

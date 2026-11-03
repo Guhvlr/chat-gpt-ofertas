@@ -2,11 +2,15 @@
 param([string]$VersionLabel,[string[]]$ProductRoots=@(),[string]$SkillsDirectory,[string]$SettingsPath,[switch]$NonInteractive,[switch]$DoNotLaunch)
 $ErrorActionPreference='Stop'
 if ($PSVersionTable.PSVersion.Major -ne 5) {throw 'Execute com powershell.exe (Windows PowerShell 5.1).'}
+if (-not $SkillsDirectory) {
+    $legacy=Join-Path $env:USERPROFILE '.codex/skills/gustavo-illustrator-ofertas/SKILL.md'
+    if (Test-Path -LiteralPath $legacy) {$SkillsDirectory=Join-Path $env:USERPROFILE '.codex/skills'}
+    else {$SkillsDirectory=Join-Path $env:USERPROFILE '.agents/skills'}
+}
 if (-not $VersionLabel) {
     if ($NonInteractive) {throw 'Informe VersionLabel.'}
     $VersionLabel=Read-Host 'Qual a versao do Illustrator? Ex.: 2024, 2025, 2026 ou 28.1'
 }
-if (-not $SkillsDirectory) {$SkillsDirectory=Join-Path $env:USERPROFILE '.agents/skills'}
 $base=[IO.Path]::GetFullPath($SkillsDirectory).TrimEnd('\','/')
 $target=[IO.Path]::GetFullPath((Join-Path $base 'gustavo-illustrator-ofertas'))
 if (-not $target.StartsWith($base+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)) {throw 'Destino fora da pasta de skills.'}
@@ -23,3 +27,4 @@ New-Item -ItemType Directory -Path $target -Force | Out-Null
 Get-ChildItem -LiteralPath $source -Force | ForEach-Object {Copy-Item -LiteralPath $_.FullName -Destination $target -Recurse -Force}
 Write-Host ('Skill instalada em '+$target)
 & (Join-Path $target 'scripts/Setup-Illustrator.ps1') -VersionLabel $VersionLabel -ProductRoots $ProductRoots -SettingsPath $SettingsPath -NonInteractive:$NonInteractive -StartIfNeeded:(-not $DoNotLaunch)
+Write-Host 'Instalacao concluida. Nenhuma oferta sera aberta ou editada. Passe a tarefa depois no Codex.'

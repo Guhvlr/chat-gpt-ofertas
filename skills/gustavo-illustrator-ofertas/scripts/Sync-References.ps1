@@ -36,5 +36,5 @@ try {
     $head=(Run-Git @('-C',$CachePath,'rev-parse','HEAD') | Out-String).Trim()
     $remote=(Run-Git @('-C',$CachePath,'rev-parse',('origin/'+$Branch)) | Out-String).Trim()
     if ($head -ne $remote) {throw 'Cache tem commits locais ainda nao aprovados na origem.'}
-    [pscustomobject]@{synced=$true;commit=$head;referencesPath=(Join-Path $skill 'references');repositoryPath=$CachePath} | ConvertTo-Json
+    [pscustomobject]@{synced=$true;commit=$head;skillPath=$skill;instructionsPath=(Join-Path $skill 'SKILL.md');referencesPath=(Join-Path $skill 'references');repositoryPath=$CachePath} | ConvertTo-Json
 } finally {$env:GIT_TERMINAL_PROMPT=$oldPrompt; $env:GCM_INTERACTIVE=$oldInteractive}
