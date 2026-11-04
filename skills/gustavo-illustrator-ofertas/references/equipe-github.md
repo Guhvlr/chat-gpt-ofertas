@@ -1,8 +1,8 @@
 # Referências da empresa
 
-Repositório: https://github.com/Guhvlr/chat-gpt-ofertas — branch aprovada: `main`.
+Repositório: https://github.com/Guhvlr/chat-gpt-ofertas — branch aprovada: `main`. Público desde 04/11/2026, por autorização do Gustavo.
 
-Antes de cada oferta, executar `scripts/Update-Skill.ps1`, que chama `Sync-References.ps1`. É necessário Git para Windows e acesso de leitura na conta da pessoa. Autenticar pelo gerenciador de credenciais do Git; nunca pedir token no chat, compartilhar chave entre funcionários ou gravar segredo no repositório.
+Antes de cada oferta, executar `scripts/Update-Skill.ps1`, que chama `Sync-References.ps1`. É necessário Git para Windows. Baixar e sincronizar este repositório público não exige conta, convite ou token: não pedir autenticação do GitHub para instalação ou leitura. Só o envio de contribuições exige conta com permissão de escrita, autenticada pelo gerenciador de credenciais do Git; nunca pedir token no chat, compartilhar chave entre funcionários ou gravar segredo no repositório.
 
 O sincronizador mantém uma cópia de leitura em `%LOCALAPPDATA%\GustavoIllustrator\repos`. Recusa cache sujo, outra origem, outra branch ou commits locais não publicados. O atualizador compara os arquivos com a skill instalada, guarda backup quando houver diferenças e copia as atualizações aprovadas, preservando a configuração e o histórico do PC. Essa atualização foi autorizada pelo Gustavo: não perguntar novamente só para receber orientações aprovadas.
 

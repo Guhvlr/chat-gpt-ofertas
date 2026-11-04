@@ -9,7 +9,7 @@
 - Sincronização testada com repositório local isolado: clone, atualização fast-forward e recusa de cache com alterações locais.
 - Nove imagens de referência copiadas da versão corrigida pelo usuário; os arquivos `.ai` e a biblioteca de fotos não estão incluídos.
 
-Limites: a conexão foi verificada neste PC com Windows e Illustrator 28.1.0. Outras versões precisam do teste inicial previsto pelo instalador. O modo Script executa JSX fornecido pelo agente; a correção de cada arte depende da revisão visual. Um computador novo ainda precisa de Illustrator/Codex, fontes e materiais do cliente. Sincronização privada depende de Git e acesso da conta local.
+Limites: a conexão foi verificada neste PC com Windows e Illustrator 28.1.0. Outras versões precisam do teste inicial previsto pelo instalador. O modo Script executa JSX fornecido pelo agente; a correção de cada arte depende da revisão visual. Um computador novo ainda precisa de Illustrator/Codex, fontes e materiais do cliente. Sincronização depende de Git; o repositório público não exige conta para leitura.
 
 ## Atualização: memória por arquivo e recebimento de padrões
 
@@ -26,3 +26,7 @@ Limites: a conexão foi verificada neste PC com Windows e Illustrator 28.1.0. Ou
 - Link de conversa validado com protocolo `codex://new`, pasta absoluta e mensagem que invoca a skill. Não foi criada uma conversa de teste nem enviada uma mensagem automaticamente.
 - Interface revisada no navegador em largura de desktop (1280 px) e estreita (390 px), sem rolagem horizontal no teste estreito. Instalação e teste da conexão confirmados pela interface.
 - Botão de atualização testado contra o GitHub privado pela interface. O cálculo de hashes usa SHA-256 do .NET para funcionar também no processo local de fundo, sem depender da descoberta do cmdlet Get-FileHash.
+
+## Acesso público — 04/11/2026
+
+O Gustavo autorizou tornar público o repositório, incluindo o instalador, scripts, orientações e nove imagens de referência. A visibilidade pública foi confirmada pela API sem autenticação e o endpoint do ZIP respondeu sem credenciais. Os testes anteriores contra o GitHub privado acima registram a condição histórica da primeira versão; instalações e atualizações atuais não exigem conta do GitHub.

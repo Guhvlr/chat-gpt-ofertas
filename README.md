@@ -4,7 +4,7 @@ Central Mac Digital e skill portátil com as orientações do Gustavo, nove tela
 
 ## Instalar em outro PC
 
-1. Instale Codex e Adobe Illustrator pelos canais oficiais. Para sincronizar referências, instale também Git para Windows e entre na sua própria conta com acesso a este repositório privado.
+1. Tenha Codex e Adobe Illustrator instalados pelos canais oficiais. O repositório é público: baixar o pacote e receber atualizações não exige conta, convite ou chave do GitHub. Para sincronizar referências, é necessário Git para Windows; o agente pode instalar o Git oficial quando precisar.
 2. Baixe em **Code → Download ZIP** e extraia tudo.
 3. Abra **Central.cmd** (ou **Instalar.cmd**, que abre a mesma Central). Na página local, selecione a versão do Illustrator e clique em **Instalar e conectar**. O aplicativo pode ser iniciado para testar a conexão. Na instalação não é preciso escolher oferta, fotos ou arquivo a abrir.
 4. Quando estiver conectado, clique em **Iniciar conversa**. O Codex abre com a pasta e uma mensagem inicial preparadas; revise e envie. Alternativa: abra o Codex e peça **Use $gustavo-illustrator-ofertas para atualizar minha oferta.** Reinicie o Codex se a skill não aparecer.
@@ -23,7 +23,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File Instalar.ps1 -VersionLab
 
 As regras estão em [padrão visual](skills/gustavo-illustrator-ofertas/references/padrao-visual.md), acompanhadas das [telas aprovadas](skills/gustavo-illustrator-ofertas/references/layout-referencia-usuario/visao-geral.jpg). Fotografias grandes, descrições com quebras semânticas e composição adaptada à embalagem. Quantidade de cópias e cores dependem do produto e do cliente.
 
-Antes de cada oferta, a skill busca a branch `main`. Novas ideias e imagens só são enviadas após autorização; use uma proposta revisável conforme [modelo](ideias/MODELO.md). Não compartilhe credenciais. Convide cada funcionário como colaborador com sua própria conta.
+Antes de cada oferta, a skill busca a branch `main` sem precisar de conta do GitHub. Novas ideias e imagens só são enviadas após autorização; use uma proposta revisável conforme [modelo](ideias/MODELO.md). Apenas quem envia alterações precisa de uma conta com permissão de escrita. Não compartilhe credenciais.
 
 ### Atualizações em todos os PCs
 
@@ -37,6 +37,6 @@ No primeiro uso de cada arquivo, a skill confirma pasta, nome e validade pelos d
 
 > Baixe e configure https://github.com/Guhvlr/chat-gpt-ofertas neste PC. Leia o AGENTS.md e abra a Central Mac Digital para eu selecionar a versão do Illustrator e instalar a integração. Depois aguarde minha tarefa.
 
-O Codex do novo PC precisa conseguir acessar o repositório privado com a conta da pessoa. O pedido orienta o agente a executar a instalação; apenas colar um link ou baixar um ZIP não executa programas sozinho. Se Git estiver ausente, o agente pode instalar o Git oficial dentro das permissões do computador. Acesso privado e licença Adobe continuam próprios de cada pessoa/PC.
+O pedido orienta o agente a baixar o repositório público e abrir a Central; não pedir login, convite ou token do GitHub para essa instalação. Apenas colar um link ou baixar um ZIP não executa programas sozinho. Se Git estiver ausente, o agente pode instalar o Git oficial dentro das permissões do computador. Codex, Illustrator e licença Adobe continuam necessários no PC.
 
 Este pacote oferece conexão e orientações para o agente; não é um gerador automático de artes nem garante composição correta sem revisão visual. Testes e limitações estão em [VALIDACAO.md](VALIDACAO.md).

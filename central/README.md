@@ -13,7 +13,7 @@ Os executáveis Adobe e suas licenças não são instalados pela Central. O bot�
 
 - Ao selecionar uma versão e instalar, o instalador existente configura apenas o Illustrator e preserva as pastas de fotos já configuradas. Se a conexão falhar, a skill continua instalada e a pendência é mostrada.
 - “Testar conexão” não modifica as artes. Para edição posterior, o agente usa os salvamentos por arquivo previstos na skill.
-- “Atualizar skill e referências” busca a branch aprovada do repositório privado. Git para Windows e acesso da pessoa são necessários. As atualizações da própria interface Central são recebidas ao baixar uma nova cópia do pacote ou atualizar seu checkout Git; o botão atualiza a skill e as referências.
+- “Atualizar skill e referências” busca a branch aprovada do repositório público. Git para Windows é necessário; conta, convite ou chave do GitHub não são exigidos para baixar ou atualizar. As atualizações da própria interface Central são recebidas ao baixar uma nova cópia do pacote ou atualizar seu checkout Git; o botão atualiza a skill e as referências.
 - Nenhum produto é editado e nenhuma mensagem é enviada automaticamente ao iniciar a Central.
 - “Encerrar Central” para o servidor, mas mantém a skill instalada. O servidor também encerra após duas horas sem chamadas autenticadas.
 
